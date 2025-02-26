@@ -29,13 +29,40 @@ class LinkedList:
         self.lenght += 1
         return True
         
+    def pop(self):
+        temp = 0
+        head = self.head
+        tail = self.tail
+        if not self.lenght:
+            return None
+
+        elif self.lenght == 1:
+            temp = self.head
+            self.head = None
+            self.lenght -= 1
+            return temp
+
+        while head is not None:
+            if head.next == tail:
+                temp = tail
+                self.tail = head
+                head.next = None
+                self.lenght -= 1
+                break
+            head = head.next
+
+        return temp
+
+
 first_LL = LinkedList(4)
 first_LL.append(3)
 first_LL.append(2)
 first_LL.append(1)
-first_LL.append(0)
+
+popped = first_LL.pop()
 
 first_LL.print_list()
 print(f"HEAD: {first_LL.head.value}")
 print(f"TAIL: {first_LL.tail.value}")
 print(f"LENGHT: {first_LL.lenght}")
+print(f"POPPED: {popped.value}")
