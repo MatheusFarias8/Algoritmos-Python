@@ -10,7 +10,7 @@ class LinkedList:
         new_node = Node(value)
         self.head = new_node
         self.tail = new_node
-        self.lenght = 1
+        self.length = 1
     
     def print_list(self):
         temp = self.head
@@ -29,21 +29,21 @@ class LinkedList:
             self.tail.next = new_node
             self.tail = new_node
 
-        self.lenght += 1
+        self.length += 1
         return True
         
     def pop(self):
         temp = 0
         head = self.head
         tail = self.tail
-        
-        if not self.lenght:
+
+        if not self.length:
             return None
 
-        elif self.lenght == 1:
+        elif self.length == 1:
             temp = self.head
             self.head = None
-            self.lenght -= 1
+            self.length -= 1
             return temp
 
         while head is not None:
@@ -51,7 +51,7 @@ class LinkedList:
                 temp = tail
                 self.tail = head
                 head.next = None
-                self.lenght -= 1
+                self.length -= 1
                 break
             head = head.next
 
@@ -60,14 +60,14 @@ class LinkedList:
     def prepend(self, value):
         new_node = Node(value)
 
-        if self.lenght == 0:
+        if self.length == 0:
             self.head = new_node
             self.tail = new_node
         else:
             new_node.next = self.head
             self.head = new_node
 
-        self.lenght += 1
+        self.length += 1
         return True
 
 
@@ -83,5 +83,5 @@ first_LL.prepend(5)
 first_LL.print_list()
 print(f"HEAD: {first_LL.head.value}")
 print(f"TAIL: {first_LL.tail.value}")
-print(f"LENGHT: {first_LL.lenght}")
+print(f"LENGTH: {first_LL.length}")
 print(f"POPPED: {popped.value}")
