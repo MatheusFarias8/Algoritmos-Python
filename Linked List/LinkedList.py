@@ -93,6 +93,16 @@ class LinkedList:
             temp = temp.next
 
         return temp
+    
+    def set_value(self, index, value):
+        temp = self.get(index)
+
+        if temp:
+            temp.value = value
+            return True
+        
+        return False
+
 
 first_LL = LinkedList(4)
 first_LL.append(3)
@@ -105,7 +115,7 @@ popped = first_LL.pop()
 first_LL.prepend(5)
 first_pop = first_LL.pop_first()
 
-
+first_LL.set_value(0, 7)
 first_LL.print_list()
 print(f"HEAD: {first_LL.head.value}")
 print(f"TAIL: {first_LL.tail.value}")
