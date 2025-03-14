@@ -135,12 +135,26 @@ class LinkedList:
         self.length -= 1
         return temp
 
+    def reverse(self):
+        temp = self.head
+        self.head = self.tail
+        self.tail = temp
+        after = temp.next
+        before = None
+
+        for _ in range(self.length):
+            after = temp.next
+            temp.next = before
+            before = temp
+            temp = after
+
+
 first_LL = LinkedList(4)
 first_LL.append(3)
 first_LL.append(2)
 first_LL.append(1)
 
-removed = first_LL.remove(2)
+first_LL.reverse()
 
 first_LL.print_list()
 print(f"HEAD: {first_LL.head.value}")
