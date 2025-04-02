@@ -11,4 +11,11 @@ class DoublyLinkedList:
         self.tail = new_node
         self.lengh = 1
 
+    def print_list(self):
+        temp = self.head
+        while temp is not None:
+            print(temp.value)
+            temp =  temp.next
+
 doublyLL = DoublyLinkedList(7)
+doublyLL.print_list()
